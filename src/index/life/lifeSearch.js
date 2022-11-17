@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { Select, Card, Input, Button, Col, Row } from "antd";
 
-
-
 export default function Index() {
   const dispatch = useDispatch();
   const [name, searchName] = useState("");
@@ -30,7 +28,7 @@ export default function Index() {
         value: data,
       };
       dispatch(action);
-      searchName('');
+      searchName("");
     });
   };
 
@@ -39,12 +37,16 @@ export default function Index() {
       <Card title="Search criteria" style={{ width: "96%", margin: "2%" }}>
         <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
           <Col md={8} style={{ lineHeight: "0px" }}>
-            <Input onChange={(e) => handleName(e)} addonBefore="name"  placeholder="Please enter the name" value={name}/>
+            <Input
+              onChange={(e) => handleName(e)}
+              addonBefore="name"
+              placeholder="Please enter the name"
+              value={name}
+            />
           </Col>
-          <Col md={8} style={{ lineHeight: "0px" }}/>
-    
+          <Col md={8} style={{ lineHeight: "0px" }} />
 
-          <Col md={8} style={{ paddingLeft: "20%"}}>
+          <Col md={8} style={{ paddingLeft: "20%" }}>
             <Button
               type="primary"
               htmlType="submit"
@@ -52,7 +54,9 @@ export default function Index() {
             >
               查询
             </Button>
-            <Button onClick={() => handleReset()} style={{marginLeft: "3%"}}>重置</Button>
+            <Button onClick={() => handleReset()} style={{ marginLeft: "3%" }}>
+              重置
+            </Button>
           </Col>
         </Row>
       </Card>

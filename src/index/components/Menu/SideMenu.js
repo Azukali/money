@@ -6,6 +6,7 @@ import {
   DownOutlined,
   LoadingOutlined,
   PlusOutlined,
+  AreaChartOutlined,
 } from "@ant-design/icons";
 import {
   Layout,
@@ -83,12 +84,10 @@ class SideMenu extends Component {
   };
 
   okAvatarModal = () => {
-    const value = this.state.imageUrl
-    axios.post("http://localhost:80/api/postUpload", {value}  ).then((res) => {
+    const value = this.state.imageUrl;
+    axios.post("http://localhost:80/api/postUpload", { value }).then((res) => {
       if (res.data.status === 0) {
-        
       } else {
-        
       }
     });
     this.setState({
@@ -112,6 +111,9 @@ class SideMenu extends Component {
     }
     if (path === "3") {
       this.props.history.push(`life`);
+    }
+    if (path === "4") {
+      this.props.history.push(`see`);
     }
   };
 
@@ -220,6 +222,11 @@ class SideMenu extends Component {
                 key: "3",
                 icon: <UploadOutlined />,
                 label: "Living expenses",
+              },
+              {
+                key: "4",
+                icon: <AreaChartOutlined />,
+                label: "Dashboard",
               },
             ]}
           />
